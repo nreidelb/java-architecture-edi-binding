@@ -5,6 +5,14 @@
 	<artifactId>jaeb</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<name>Java EDI Converter</name>
+	
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>Nexus Server</name>
+			<url>http://10.0.1.200:8080/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
