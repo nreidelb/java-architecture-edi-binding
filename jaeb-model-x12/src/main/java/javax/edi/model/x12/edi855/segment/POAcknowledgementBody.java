@@ -1,12 +1,19 @@
 package javax.edi.model.x12.edi855.segment;
 
 import javax.edi.bind.annotations.EDISegmentGroup;
+import javax.edi.model.x12.X12Body;
+import javax.validation.Valid;
 
 @EDISegmentGroup
-public class POAcknowledgementBody {
+public class POAcknowledgementBody implements X12Body {
 
+	@Valid
 	private Header header;
+	
+	@Valid
 	private Detail detail;
+	
+	@Valid
 	private Trailer footer;
 	
 	public Header getHeader() {

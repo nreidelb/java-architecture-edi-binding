@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.edi.bind.annotations.EDIElement;
 import javax.edi.bind.annotations.EDISegment;
 import javax.edi.bind.annotations.elements.EDIElementFormat;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -17,7 +18,6 @@ public class InterchangeEnvelopeHeader {
 	private String authorizationInformationQualifier;
 
 	@EDIElement(fieldName="ISA02", dataElement="I02")
-	@NotNull
 	@Size(min=10, max=10)
 	private String authorizationInformation;
 
@@ -27,7 +27,6 @@ public class InterchangeEnvelopeHeader {
 	private String securityInformationQualifier;
 
 	@EDIElement(fieldName="ISA04", dataElement="I04")
-	@NotNull
 	@Size(min=10, max=10)
 	private String securityInformation;
 

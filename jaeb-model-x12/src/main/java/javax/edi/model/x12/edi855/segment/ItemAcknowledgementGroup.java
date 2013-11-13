@@ -6,6 +6,7 @@ import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDISegmentGroup;
 import javax.edi.model.x12.segment.LineItemAcknowledgement;
 import javax.edi.model.x12.segment.POBaselineItemData;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,10 +14,12 @@ import javax.validation.constraints.Size;
 public class ItemAcknowledgementGroup {
 
 	@NotNull
+	@Valid
 	private POBaselineItemData itemData;
 	
 	@NotNull
 	@Size(min=0, max=25)
+	@Valid
 	@EDICollectionType(LineItemAcknowledgement.class)
 	private Collection<LineItemAcknowledgement> itemAcknowledgements;
 	

@@ -4,31 +4,39 @@ import java.util.Collection;
 
 import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDIMessage;
+import javax.edi.model.x12.X12Message;
 import javax.edi.model.x12.edi855.segment.POAcknowledgementBody;
 import javax.edi.model.x12.segment.GroupEnvelopeHeader;
 import javax.edi.model.x12.segment.GroupEnvelopeTrailer;
 import javax.edi.model.x12.segment.InterchangeEnvelopeHeader;
 import javax.edi.model.x12.segment.InterchangeEnvelopeTrailer;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @EDIMessage
-public class POAcknowledgement {
+public class POAcknowledgement implements X12Message {
 
 	@NotNull
+	@Valid
 	private InterchangeEnvelopeHeader interchangeEnvelopeHeader;
+	
 	@NotNull
+	@Valid
 	private GroupEnvelopeHeader groupEnvelopeHeader;
 	
 	@NotNull
 	@Size(min=1)
+	//@Valid
 	@EDICollectionType(POAcknowledgementBody.class)
 	private Collection<POAcknowledgementBody> body;
 	
 	@NotNull
+	@Valid
 	private GroupEnvelopeTrailer groupEnvelopeTrailer;
 	
 	@NotNull
+	@Valid
 	private InterchangeEnvelopeTrailer interchangeEnvelopeTrailer;
 
 	public InterchangeEnvelopeHeader getInterchangeEnvelopeHeader() {

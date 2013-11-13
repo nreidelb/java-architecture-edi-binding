@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.edi.bind.annotations.EDIElement;
 import javax.edi.bind.annotations.EDISegment;
 import javax.edi.bind.annotations.elements.EDIElementFormat;
+import javax.edi.model.x12.constraint.BigIntegerContraint.BigIntegerSize;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -18,7 +19,7 @@ public class LineItemAcknowledgement {
 	private String lineItemStatus;
 
 	@EDIElement(fieldName="ACK02", dataElement="380")
-	@Size(min=1, max=9)
+	@BigIntegerSize(min=1, max=9,message="ACK02: Quantity contraint ")
 	private BigInteger quantity;
 
 
@@ -53,10 +54,12 @@ public class LineItemAcknowledgement {
 
 
 	@EDIElement(fieldName="ACK09", dataElement="235")
+	@Size(min=2, max=2)
 	private String productServiceIDQualifier2;
 
 
 	@EDIElement(fieldName="ACK10", dataElement="234")
+	@Size(min=1, max=80)
 	private String productServiceID2;
 
 

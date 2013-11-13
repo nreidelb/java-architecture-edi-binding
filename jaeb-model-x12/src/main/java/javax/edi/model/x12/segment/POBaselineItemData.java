@@ -6,6 +6,8 @@ import java.math.BigInteger;
 import javax.edi.bind.annotations.EDIElement;
 import javax.edi.bind.annotations.EDISegment;
 import javax.edi.bind.annotations.elements.EDIElementFormat;
+import javax.edi.model.x12.constraint.BigDecimalConstraint.BigDecimalSize;
+import javax.edi.model.x12.constraint.BigIntegerContraint.BigIntegerSize;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,6 +21,7 @@ public class POBaselineItemData {
 	
 	@EDIElement(fieldName="PO102", dataElement="330")
 	@NotNull
+	@BigIntegerSize(min=1 ,max=9 ,message="PO102: Quantity size constraint")
 	private BigInteger quantity;
 	
 	@EDIElement(fieldName="PO103", dataElement="355")
@@ -28,6 +31,7 @@ public class POBaselineItemData {
 	
 	@EDIElement(fieldName="PO104", dataElement="212")
 	@EDIElementFormat("####.##")
+	@BigDecimalSize(min=1 ,max=14 ,message="PO104: Unit price size constraint" )
 	private BigDecimal unitPrice;
 	
 	@EDIElement(fieldName="PO105", dataElement="639")
@@ -50,7 +54,7 @@ public class POBaselineItemData {
 	@EDIElement(fieldName="PO109", dataElement="234", conditional=true)//X?
 	@Size(min=1, max=30)
 	//@Size(min = 1, max = 48, groups={USSCO.class})
-	private String prodServID2; // USSCOÕs item number
+	private String prodServID2; // USSCOï¿½s item number
 
 	@EDIElement(fieldName="PO110", dataElement="235")
 	@Size(min=2, max=2)

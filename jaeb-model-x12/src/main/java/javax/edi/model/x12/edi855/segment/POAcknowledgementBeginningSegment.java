@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.edi.bind.annotations.EDIElement;
 import javax.edi.bind.annotations.EDISegment;
 import javax.edi.bind.annotations.elements.EDIElementFormat;
+import javax.edi.model.x12.constraint.BigIntegerContraint.BigIntegerSize;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -43,6 +44,7 @@ public class POAcknowledgementBeginningSegment {
 	
 	
 	@EDIElement(fieldName="BAK06", dataElement="327")
+	@BigIntegerSize(min=1, max=8, message="BAK06: Change order sequence number size constraint")
 	private BigInteger changeOrderSeqNo;
 	
 	

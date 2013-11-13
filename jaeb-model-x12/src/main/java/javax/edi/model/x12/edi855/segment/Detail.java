@@ -4,12 +4,14 @@ import java.util.Collection;
 
 import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDISegmentGroup;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @EDISegmentGroup
 public class Detail {
 
 	@NotNull
+	@Valid
 	@EDICollectionType(ItemAcknowledgementGroup.class)
 	private Collection<ItemAcknowledgementGroup> itemAcknowledgements;
 
