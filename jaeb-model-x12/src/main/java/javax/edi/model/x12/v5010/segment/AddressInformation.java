@@ -1,4 +1,4 @@
-package javax.edi.model.x12.segment;
+package javax.edi.model.x12.v5010.segment;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,11 +11,11 @@ public class AddressInformation {
 	
 	@EDIElement(fieldName="N301",dataElement="166")
 	@NotNull
-	@Size(min = 1, max = 55)
+	@Size(min = 1, max = 35)
 	private String addressLine1;
 	
 	@EDIElement(fieldName="N302",dataElement="166")
-	@Size(min = 1, max = 55)
+	@Size(min = 1, max = 35)
 	private String addressLine2;
 
 	public String getAddressLine1() {

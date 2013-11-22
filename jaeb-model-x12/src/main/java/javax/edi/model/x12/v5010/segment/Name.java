@@ -1,4 +1,4 @@
-package javax.edi.model.x12.segment;
+package javax.edi.model.x12.v5010.segment;
 
 import javax.edi.bind.annotations.EDIElement;
 import javax.edi.bind.annotations.EDISegment;
@@ -15,7 +15,7 @@ public class Name {
 	private String entityIdentifierCode;
 
 	@EDIElement(fieldName="N102", dataElement="93")
-	@Size(min=1, max=60)
+	@Size(min=1, max=35)
 	private String name;
 
 	@EDIElement(fieldName="N103", dataElement="66")
@@ -23,7 +23,7 @@ public class Name {
 	private String identificationCodeQualifier;
 
 	@EDIElement(fieldName="N104", dataElement="67")
-	@Size(min=2, max=80)
+	@Size(min=2, max=17)
 	private String identificationCode;
 	
 	@EDIElement(fieldName="N105",dataElement="706")

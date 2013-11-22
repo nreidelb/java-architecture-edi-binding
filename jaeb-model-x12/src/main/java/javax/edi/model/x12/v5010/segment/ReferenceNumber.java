@@ -1,4 +1,4 @@
-package javax.edi.model.x12.segment;
+package javax.edi.model.x12.v5010.segment;
 
 import javax.edi.bind.annotations.EDIElement;
 import javax.edi.bind.annotations.EDISegment;
@@ -10,11 +10,11 @@ public class ReferenceNumber {
 
 	@EDIElement(fieldName="REF01",dataElement="128")
 	@NotNull
-	@Size(min = 2, max = 3)
+	@Size(min = 2, max = 2)
 	private String referenceIdentificationQualifier;
 	
 	@EDIElement(fieldName="REF02",dataElement="127",conditional=true)
-	@Size(min = 1, max = 50)
+	@Size(min = 1, max = 35)
 	private String referenceIdentification;
 	
 	
