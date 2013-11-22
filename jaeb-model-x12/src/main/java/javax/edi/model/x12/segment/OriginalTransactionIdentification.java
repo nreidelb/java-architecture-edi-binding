@@ -27,9 +27,22 @@ public class OriginalTransactionIdentification {
 	@Size(min=2, max=15)
 	private String appSenderCode;
 	
+	@EDIElement(fieldName="OTI05")
+        private String otiFive;
+        
+        @EDIElement(fieldName="OTI06")
+        private String otiSix;
+        
+        @EDIElement(fieldName="OTI07")
+        private String otiSeven;
+	
 	@EDIElement(fieldName="OTI08", dataElement="28")
 	@Size(min=1, max=9)
 	private String groupControlNumber;
+	
+	@EDIElement(fieldName="OTI09")
+        private String otiNine;
+        
 	
 	@EDIElement(fieldName="OTI10", dataElement="143")
 	@Size(min=3, max=3)
