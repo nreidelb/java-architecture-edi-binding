@@ -44,7 +44,9 @@ public class Header {
 	
 	private TermsOfSale termsOfSale;
 	
-	private DateTimeReference dateTimeReference;
+	@EDICollectionType(DateTimeReference.class)
+	@Size(max=25)
+	private Collection<DateTimeReference> dateTimeReference;
 	
 	private ProductItemDescription productItemDescription;
 	
@@ -114,11 +116,11 @@ public class Header {
 		this.termsOfSale = termsOfSale;
 	}
 
-	public DateTimeReference getDateTimeReference() {
+	public Collection<DateTimeReference> getDateTimeReference() {
 		return dateTimeReference;
 	}
 
-	public void setDateTimeReference(DateTimeReference dateTimeReference) {
+	public void setDateTimeReference(Collection<DateTimeReference> dateTimeReference) {
 		this.dateTimeReference = dateTimeReference;
 	}
 

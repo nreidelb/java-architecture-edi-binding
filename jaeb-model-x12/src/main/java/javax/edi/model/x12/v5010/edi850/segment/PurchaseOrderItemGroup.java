@@ -4,11 +4,14 @@ import java.util.Collection;
 
 import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDISegmentGroup;
+import javax.edi.model.x12.v5010.segment.AllowanceChargeOrService;
+import javax.edi.model.x12.v5010.segment.ItemPhysicalDetail;
 import javax.edi.model.x12.v5010.segment.MonetaryAmountInformation;
 import javax.edi.model.x12.v5010.segment.POBaselineItemData;
 import javax.edi.model.x12.v5010.segment.ProductItemDescription;
 import javax.edi.model.x12.v5010.segment.ReferenceIdentification;
 import javax.edi.model.x12.v5010.segment.DestinationQuantity;
+import javax.edi.model.x12.v5010.segment.SubLineItemDetail;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -18,7 +21,11 @@ public class PurchaseOrderItemGroup {
 	@NotNull
 	private POBaselineItemData baselineItemData;
 	
+	private ItemPhysicalDetail itemPhysicalDetail;
+	
 	private ProductItemDescription itemDescription;
+	
+	private AllowanceChargeOrService allowanceChargeOrService;
 	
 	private DestinationQuantity destinationQuantity;
 	
@@ -27,6 +34,8 @@ public class PurchaseOrderItemGroup {
 	@Size(max=100000)
 	@EDICollectionType(TextualData.class)
 	private Collection<TextualData> textualData;
+	
+	private SubLineItemDetail subLineItemDetail;
 	
 	private MonetaryAmountInformation monetaryAmountInformation;
 
@@ -77,5 +86,29 @@ public class PurchaseOrderItemGroup {
 
 	public void setMonetaryAmountInformation(MonetaryAmountInformation monetaryAmountInformation) {
 		this.monetaryAmountInformation = monetaryAmountInformation;
+	}
+
+	public ItemPhysicalDetail getItemPhysicalDetail() {
+		return itemPhysicalDetail;
+	}
+
+	public void setItemPhysicalDetail(ItemPhysicalDetail itemPhysicalDetail) {
+		this.itemPhysicalDetail = itemPhysicalDetail;
+	}
+
+	public AllowanceChargeOrService getAllowanceChargeOrService() {
+		return allowanceChargeOrService;
+	}
+
+	public void setAllowanceChargeOrService(AllowanceChargeOrService allowanceChargeOrService) {
+		this.allowanceChargeOrService = allowanceChargeOrService;
+	}
+
+	public SubLineItemDetail getSubLineItemDetail() {
+		return subLineItemDetail;
+	}
+
+	public void setSubLineItemDetail(SubLineItemDetail subLineItemDetail) {
+		this.subLineItemDetail = subLineItemDetail;
 	}
 }
