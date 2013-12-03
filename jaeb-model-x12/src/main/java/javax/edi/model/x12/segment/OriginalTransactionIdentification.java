@@ -106,4 +106,60 @@ public class OriginalTransactionIdentification {
 				+ txnSetIdentifierCode + "]";
 	}
 
+    /**
+     * @return the otiFive
+     */
+    public String getOtiFive() {
+        return otiFive;
+    }
+
+    /**
+     * @param otiFive the otiFive to set
+     */
+    public void setOtiFive(String otiFive) {
+        this.otiFive = otiFive;
+    }
+
+    /**
+     * @return the otiSix
+     */
+    public String getOtiSix() {
+        return otiSix;
+    }
+
+    /**
+     * @param otiSix the otiSix to set
+     */
+    public void setOtiSix(String otiSix) {
+        this.otiSix = otiSix;
+    }
+
+    /**
+     * @return the otiSeven
+     */
+    public String getOtiSeven() {
+        return otiSeven;
+    }
+
+    /**
+     * @param otiSeven the otiSeven to set
+     */
+    public void setOtiSeven(String otiSeven) {
+        this.otiSeven = otiSeven;
+    }
+
+    /**
+     * @return the otiNine
+     */
+    public String getOtiNine() {
+        return otiNine;
+    }
+
+    /**
+     * @param otiNine the otiNine to set
+     */
+    public void setOtiNine(String otiNine) {
+        this.otiNine = otiNine;
+    }
+
 }
