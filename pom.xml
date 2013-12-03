@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>javax.edi</groupId>
 	<artifactId>jaeb</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>1.0.8</version>
 	<name>Java EDI Converter</name>
 	
 	<distributionManagement>
