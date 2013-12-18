@@ -15,7 +15,9 @@ import javax.validation.constraints.Size;
 public class ShipmentInformationGroup {
 
 	private Name shipToName;
-	private AdditionalNameInformation additionalNameInformation;
+        @EDICollectionType(AdditionalNameInformation.class)
+	@Size(max=2)
+	private Collection<AdditionalNameInformation> additionalNameInformation;
 	private AddressInformation addressInformation;
 	private GeographicLocation geographicLocation;
 	
@@ -29,15 +31,6 @@ public class ShipmentInformationGroup {
 
 	public void setShipToName(Name shipToName) {
 		this.shipToName = shipToName;
-	}
-
-	public AdditionalNameInformation getAdditionalNameInformation() {
-		return additionalNameInformation;
-	}
-
-	public void setAdditionalNameInformation(
-			AdditionalNameInformation additionalNameInformation) {
-		this.additionalNameInformation = additionalNameInformation;
 	}
 
 	public AddressInformation getAddressInformation() {
@@ -64,6 +57,20 @@ public class ShipmentInformationGroup {
 			Collection<PersonContact> administrativeContact) {
 		this.administrativeContact = administrativeContact;
 	}
+
+    /**
+     * @return the additionalNameInformation
+     */
+    public Collection<AdditionalNameInformation> getAdditionalNameInformation() {
+        return additionalNameInformation;
+    }
+
+    /**
+     * @param additionalNameInformation the additionalNameInformation to set
+     */
+    public void setAdditionalNameInformation(Collection<AdditionalNameInformation> additionalNameInformation) {
+        this.additionalNameInformation = additionalNameInformation;
+    }
 	
 	
 }
