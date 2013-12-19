@@ -9,7 +9,7 @@ import javax.edi.model.x12.segment.ProductItemDescription;
 import javax.edi.model.x12.segment.ReferenceIdentification;
 import javax.edi.model.x12.segment.ReferenceNumber;
 import javax.edi.model.x12.segment.RoutingCarrierDetails;
-import javax.edi.model.x12.v5010.segment.TermsOfSale;
+import javax.edi.model.x12.segment.TermsOfSale;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
