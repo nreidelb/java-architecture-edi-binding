@@ -1,4 +1,4 @@
-package javax.edi.model.x12.v5010.edi850.segment;
+package javax.edi.model.x12.v5010.edi810.segment;
 
 import java.util.Collection;
 
@@ -8,14 +8,12 @@ import javax.edi.model.x12.v5010.segment.AdditionalNameInformation;
 import javax.edi.model.x12.v5010.segment.AddressInformation;
 import javax.edi.model.x12.v5010.segment.GeographicLocation;
 import javax.edi.model.x12.v5010.segment.Name;
-import javax.edi.model.x12.v5010.segment.PersonContact;
-import javax.validation.constraints.NotNull;
+import javax.edi.model.x12.v5010.segment.ReferenceNumber;
 import javax.validation.constraints.Size;
 
 @EDISegmentGroup
-public class ShippingBillingGroup {
+public class PartyIdentificationGroup {
 
-	@NotNull
 	private Name name;
 	
 	private AdditionalNameInformation additionalNameInformation;
@@ -24,9 +22,9 @@ public class ShippingBillingGroup {
 	
 	private GeographicLocation geographicLocation;
 	
-	@Size(max=3)
-	@EDICollectionType(PersonContact.class)
-	private Collection<PersonContact> personContacts;
+	@EDICollectionType(ReferenceNumber.class)
+	@Size(min=0, max=12)
+	private Collection<ReferenceNumber> referenceNumbers;
 
 	public Name getName() {
 		return name;
@@ -61,12 +59,13 @@ public class ShippingBillingGroup {
 		this.geographicLocation = geographicLocation;
 	}
 
-	public Collection<PersonContact> getPersonContacts() {
-		return personContacts;
+	public Collection<ReferenceNumber> getReferenceNumbers() {
+		return referenceNumbers;
 	}
 
-	public void setPersonContacts(
-			Collection<PersonContact> personContacts) {
-		this.personContacts = personContacts;
+	public void setReferenceNumbers(Collection<ReferenceNumber> referenceNumbers) {
+		this.referenceNumbers = referenceNumbers;
 	}
+	
+	
 }

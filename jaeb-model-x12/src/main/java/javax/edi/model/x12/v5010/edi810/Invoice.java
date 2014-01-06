@@ -1,11 +1,10 @@
-package javax.edi.model.x12.v5010.edi850;
+package javax.edi.model.x12.v5010.edi810;
 
 import java.util.Collection;
 
 import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDIMessage;
-import javax.edi.model.x12.v5010.X12Message;
-import javax.edi.model.x12.v5010.edi850.segment.PurchaseOrderBody;
+import javax.edi.model.x12.v5010.edi810.segment.InvoiceBody;
 import javax.edi.model.x12.v5010.segment.GroupEnvelopeHeader;
 import javax.edi.model.x12.v5010.segment.GroupEnvelopeTrailer;
 import javax.edi.model.x12.v5010.segment.InterchangeEnvelopeHeader;
@@ -13,29 +12,33 @@ import javax.edi.model.x12.v5010.segment.InterchangeEnvelopeTrailer;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@EDIMessage
-public class PurchaseOrder implements X12Message {
 
+@EDIMessage
+public class Invoice {
+	
 	@NotNull
-	private InterchangeEnvelopeHeader interchangeEnvelopeHeader;
+	private InterchangeEnvelopeHeader envelopeHeader;
+	
 	@NotNull
 	private GroupEnvelopeHeader groupEnvelopeHeader;
 	
 	@NotNull
 	@Size(min=1)
-	@EDICollectionType(PurchaseOrderBody.class)
-	private Collection<PurchaseOrderBody> body;
+	@EDICollectionType(InvoiceBody.class)
+	private Collection<InvoiceBody> body;
 	
 	@NotNull
 	private GroupEnvelopeTrailer groupEnvelopeTrailer;
 	@NotNull
-	private InterchangeEnvelopeTrailer interchangeEnvelopeTrailer;
-	public InterchangeEnvelopeHeader getInterchangeEnvelopeHeader() {
-		return interchangeEnvelopeHeader;
+	private InterchangeEnvelopeTrailer envelopeTrailer;
+	
+	
+	
+	public InterchangeEnvelopeHeader getEnvelopeHeader() {
+		return envelopeHeader;
 	}
-	public void setInterchangeEnvelopeHeader(
-			InterchangeEnvelopeHeader interchangeEnvelopeHeader) {
-		this.interchangeEnvelopeHeader = interchangeEnvelopeHeader;
+	public void setEnvelopeHeader(InterchangeEnvelopeHeader envelopeHeader) {
+		this.envelopeHeader = envelopeHeader;
 	}
 	public GroupEnvelopeHeader getGroupEnvelopeHeader() {
 		return groupEnvelopeHeader;
@@ -43,10 +46,10 @@ public class PurchaseOrder implements X12Message {
 	public void setGroupEnvelopeHeader(GroupEnvelopeHeader groupEnvelopeHeader) {
 		this.groupEnvelopeHeader = groupEnvelopeHeader;
 	}
-	public Collection<PurchaseOrderBody> getBody() {
+	public Collection<InvoiceBody> getBody() {
 		return body;
 	}
-	public void setBody(Collection<PurchaseOrderBody> body) {
+	public void setBody(Collection<InvoiceBody> body) {
 		this.body = body;
 	}
 	public GroupEnvelopeTrailer getGroupEnvelopeTrailer() {
@@ -55,15 +58,18 @@ public class PurchaseOrder implements X12Message {
 	public void setGroupEnvelopeTrailer(GroupEnvelopeTrailer groupEnvelopeTrailer) {
 		this.groupEnvelopeTrailer = groupEnvelopeTrailer;
 	}
-	public InterchangeEnvelopeTrailer getInterchangeEnvelopeTrailer() {
-		return interchangeEnvelopeTrailer;
+	public InterchangeEnvelopeTrailer getEnvelopeTrailer() {
+		return envelopeTrailer;
 	}
-	public void setInterchangeEnvelopeTrailer(
-			InterchangeEnvelopeTrailer interchangeEnvelopeTrailer) {
-		this.interchangeEnvelopeTrailer = interchangeEnvelopeTrailer;
+	public void setEnvelopeTrailer(InterchangeEnvelopeTrailer envelopeTrailer) {
+		this.envelopeTrailer = envelopeTrailer;
+	}
+	@Override
+	public String toString() {
+		return "Invoice [envelopeHeader=" + envelopeHeader
+				+ ", groupEnvelopeHeader=" + groupEnvelopeHeader + ", body="
+				+ body + ", groupEnvelopeTrailer=" + groupEnvelopeTrailer
+				+ ", envelopeTrailer=" + envelopeTrailer + "]";
 	}
 	
-
-
-
 }
