@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDISegmentGroup;
+import javax.edi.model.x12.segment.PersonContact;
 import javax.edi.model.x12.segment.ReferenceIdentification;
 import javax.edi.model.x12.segment.ReferenceNumber;
 import javax.edi.model.x12.segment.RoutingCarrierDetails;
@@ -31,6 +32,10 @@ public class Header {
 	@Size(max=1000)
 	@EDICollectionType(ReferenceIdentification.class)
 	private Collection<ReferenceIdentification> referenceIdentifications;
+        
+        @Size(max=3)
+        @EDICollectionType(PersonContact.class)
+        private Collection<PersonContact> contacts;
 
 	@Size(max=200)
 	@EDICollectionType(ShippingBillingGroup.class)
@@ -86,4 +91,18 @@ public class Header {
 			Collection<ShippingBillingGroup> shippingBillingGroups) {
 		this.shippingBillingGroups = shippingBillingGroups;
 	}
+
+    /**
+     * @return the contacts
+     */
+    public Collection<PersonContact> getContacts() {
+        return contacts;
+    }
+
+    /**
+     * @param contacts the contacts to set
+     */
+    public void setContacts(Collection<PersonContact> contacts) {
+        this.contacts = contacts;
+    }
 }
