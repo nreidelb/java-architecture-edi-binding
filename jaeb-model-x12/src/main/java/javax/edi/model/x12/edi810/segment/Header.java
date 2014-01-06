@@ -32,7 +32,9 @@ public class Header {
 	@Size(min=0, max=100)
 	private Collection<NoteSpecialInstructions> noteSpecialInstructions;
 	
-	private ReferenceNumber referenceNumbers;
+        @EDICollectionType(ReferenceNumber.class)
+	@Size(min=2, max=12)
+	private Collection<ReferenceNumber> referenceNumbers;
 	
 	@EDICollectionType(Name.class)
 	@Size(min=0, max=200)
@@ -72,12 +74,7 @@ public class Header {
 			Collection<NoteSpecialInstructions> noteSpecialInstructions) {
 		this.noteSpecialInstructions = noteSpecialInstructions;
 	}
-	public ReferenceNumber getReferenceNumbers() {
-		return referenceNumbers;
-	}
-	public void setReferenceNumbers(ReferenceNumber referenceNumbers) {
-		this.referenceNumbers = referenceNumbers;
-	}
+        
 	public Collection<Name> getNames() {
 		return names;
 	}
@@ -115,4 +112,18 @@ public class Header {
 				+ ", termsofSale=" + termsOfSale + ", fobRelatedInstructions="
 				+ fobRelatedInstructions + "]";
 	}
+
+    /**
+     * @return the referenceNumbers
+     */
+    public Collection<ReferenceNumber> getReferenceNumbers() {
+        return referenceNumbers;
+    }
+
+    /**
+     * @param referenceNumbers the referenceNumbers to set
+     */
+    public void setReferenceNumbers(Collection<ReferenceNumber> referenceNumbers) {
+        this.referenceNumbers = referenceNumbers;
+    }
 }

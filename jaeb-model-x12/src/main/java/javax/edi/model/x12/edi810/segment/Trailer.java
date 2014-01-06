@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDISegmentGroup;
 import javax.edi.model.x12.segment.AllowanceChargeOrService;
+import javax.edi.model.x12.segment.TaxInformation;
 import javax.edi.model.x12.segment.TotalMonetaryValueSummary;
 import javax.edi.model.x12.segment.TransactionSetTrailer;
 import javax.edi.model.x12.segment.TransactionTotal;
@@ -16,6 +17,8 @@ public class Trailer {
 
 	@NotNull
 	private TotalMonetaryValueSummary totalMonetaryValueSummary;
+        
+        private TaxInformation taxInformation;
 	
 	@EDICollectionType(AllowanceChargeOrService.class)
 	@Size(min=0, max=10)
@@ -69,5 +72,19 @@ public class Trailer {
 				+ transactionTotals + ", transactionSetTrailer="
 				+ transactionSetTrailer + "]";
 	}
+
+    /**
+     * @return the taxInformation
+     */
+    public TaxInformation getTaxInformation() {
+        return taxInformation;
+    }
+
+    /**
+     * @param taxInformation the taxInformation to set
+     */
+    public void setTaxInformation(TaxInformation taxInformation) {
+        this.taxInformation = taxInformation;
+    }
 	
 }
