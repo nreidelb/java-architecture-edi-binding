@@ -51,8 +51,8 @@ public class POAcknowledgementBeginningSegment {
 	@EDIElement(fieldName="BAK07", dataElement="640")
 	@Size(min=2, max=2)
 	private String transactionTypeCode;
-	
-	@EDIElement(fieldName="BAK08", dataElement = "127")
+        
+        @EDIElement(fieldName="BAK08", dataElement = "127")
         @Size(min=1,max=16)
         private String referenceIdentification;
 
@@ -125,6 +125,20 @@ public class POAcknowledgementBeginningSegment {
 	public void setTransactionTypeCode(String transactionTypeCode) {
 		this.transactionTypeCode = transactionTypeCode;
 	}
+
+    /**
+     * @return the referenceIdentification
+     */
+    public String getReferenceIdentification() {
+        return referenceIdentification;
+    }
+
+    /**
+     * @param referenceIdentification the referenceIdentification to set
+     */
+    public void setReferenceIdentification(String referenceIdentification) {
+        this.referenceIdentification = referenceIdentification;
+    }
 
 	
 
