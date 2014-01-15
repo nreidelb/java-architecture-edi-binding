@@ -71,8 +71,12 @@ public class FieldAwareConverter {
 			timezone = TimeZone.getDefault();
 		}
 		
-		
+
 		Converter converter = Converters.getConverter(obj.getClass(), String.class);
+                //checks to see if the runtime type of the object is a subtype of date like sql timestamp and uses the date converter
+                if(Date.class.isAssignableFrom(obj.getClass())){
+                    converter = Converters.getConverter(Date.class, String.class);
+                }
 		
 		if(converter instanceof AbstractNumberConverter) {
 			if(obj instanceof Number && StringUtils.isNotBlank(format)) {
