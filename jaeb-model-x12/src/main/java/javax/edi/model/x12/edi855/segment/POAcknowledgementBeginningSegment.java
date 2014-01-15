@@ -51,6 +51,10 @@ public class POAcknowledgementBeginningSegment {
 	@EDIElement(fieldName="BAK07", dataElement="640")
 	@Size(min=2, max=2)
 	private String transactionTypeCode;
+	
+	@EDIElement(fieldName="BAK08", dataElement = "127")
+        @Size(min=1,max=16)
+        private String referenceIdentification;
 
 
 	public String getTransactionSetPurposeCode() {
