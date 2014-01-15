@@ -9,6 +9,7 @@ import javax.edi.model.x12.segment.AddressInformation;
 import javax.edi.model.x12.segment.GeographicLocation;
 import javax.edi.model.x12.segment.Name;
 import javax.edi.model.x12.segment.PersonContact;
+import javax.edi.model.x12.segment.ReferenceNumber;
 import javax.validation.constraints.Size;
 
 @EDISegmentGroup
@@ -24,6 +25,8 @@ public class ShipmentInformationGroup {
 	@EDICollectionType(PersonContact.class)
 	@Size(max=3)
 	private Collection<PersonContact> administrativeContact;
+        
+        private ReferenceNumber referenceNumber;
 
 	public Name getShipToName() {
 		return shipToName;
@@ -70,6 +73,20 @@ public class ShipmentInformationGroup {
      */
     public void setAdditionalNameInformation(Collection<AdditionalNameInformation> additionalNameInformation) {
         this.additionalNameInformation = additionalNameInformation;
+    }
+
+    /**
+     * @return the referenceNumber
+     */
+    public ReferenceNumber getReferenceNumber() {
+        return referenceNumber;
+    }
+
+    /**
+     * @param referenceNumber the referenceNumber to set
+     */
+    public void setReferenceNumber(ReferenceNumber referenceNumber) {
+        this.referenceNumber = referenceNumber;
     }
 	
 	
