@@ -1,6 +1,7 @@
 package javax.edi.model.x12.edi856.segment;
 
 import java.util.Collection;
+import java.io.Serializable;
 
 import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDISegmentGroup;
@@ -10,7 +11,7 @@ import javax.edi.model.x12.segment.ReferenceNumber;
 import javax.validation.constraints.NotNull;
 
 @EDISegmentGroup
-public class OrderInformationGroup {
+public class OrderInformationGroup implements Serializable {
 
 	@NotNull
 	private HierarchicalLevel purchaseOrderReferenceHeader;
