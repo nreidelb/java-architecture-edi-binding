@@ -1,4 +1,3 @@
-
 package javax.edi.model.x12.edi810.segment;
 
 import java.util.Collection;
@@ -7,8 +6,6 @@ import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDISegmentGroup;
 import javax.edi.model.x12.segment.Currency;
 import javax.edi.model.x12.segment.FOBRelatedInstruction;
-import javax.edi.model.x12.segment.GeographicLocation;
-import javax.edi.model.x12.segment.Name;
 import javax.edi.model.x12.segment.NoteSpecialInstructions;
 import javax.edi.model.x12.segment.ReferenceNumber;
 import javax.edi.model.x12.segment.TermsOfSale;
@@ -36,11 +33,9 @@ public class Header {
 	@Size(min=2, max=12)
 	private Collection<ReferenceNumber> referenceNumbers;
 	
-	@EDICollectionType(Name.class)
+	@EDICollectionType(InvoiceAddressGroup.class)
 	@Size(min=0, max=200)
-	private Collection<Name> names;
-	
-	private GeographicLocation destinationCountryCode;
+	private Collection<InvoiceAddressGroup> invoiceAddressGroups;
 	
 	@EDICollectionType(TermsOfSale.class)
 	@Size(max=5)
@@ -75,19 +70,6 @@ public class Header {
 		this.noteSpecialInstructions = noteSpecialInstructions;
 	}
         
-	public Collection<Name> getNames() {
-		return names;
-	}
-	public void setNames(Collection<Name> names) {
-		this.names = names;
-	}
-	public GeographicLocation getDestinationCountryCode() {
-		return destinationCountryCode;
-	}
-	public void setDestinationCountryCode(
-			GeographicLocation destinationCountryCode) {
-		this.destinationCountryCode = destinationCountryCode;
-	}
 	public Collection<TermsOfSale> getTermsOfSale() {
 		return termsOfSale;
 	}
@@ -107,8 +89,7 @@ public class Header {
 				+ ", beginningSegmentforInvoice=" + beginningSegmentforInvoice
 				+ ", currency=" + currency + ", noteSpecialInstructions="
 				+ noteSpecialInstructions + ", referenceNumbers="
-				+ referenceNumbers + ", names=" + names
-				+ ", destinationCountryCode=" + destinationCountryCode
+				+ referenceNumbers + ", names=" + invoiceAddressGroups
 				+ ", termsofSale=" + termsOfSale + ", fobRelatedInstructions="
 				+ fobRelatedInstructions + "]";
 	}
@@ -125,5 +106,19 @@ public class Header {
      */
     public void setReferenceNumbers(Collection<ReferenceNumber> referenceNumbers) {
         this.referenceNumbers = referenceNumbers;
+    }
+
+    /**
+     * @return the invoiceAddressGroups
+     */
+    public Collection<InvoiceAddressGroup> getInvoiceAddressGroups() {
+        return invoiceAddressGroups;
+    }
+
+    /**
+     * @param invoiceAddressGroups the invoiceAddressGroups to set
+     */
+    public void setInvoiceAddressGroups(Collection<InvoiceAddressGroup> invoiceAddressGroups) {
+        this.invoiceAddressGroups = invoiceAddressGroups;
     }
 }
