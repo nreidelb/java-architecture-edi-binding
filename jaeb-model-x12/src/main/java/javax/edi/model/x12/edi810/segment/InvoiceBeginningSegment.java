@@ -43,6 +43,19 @@ public class InvoiceBeginningSegment {
 	@EDIElement(fieldName="BIG07")
 	@Size(min=2, max=2)
 	private String transactionTypeCode;
+        
+        @EDIElement(fieldName="BIG08")
+	@Size(min=0, max=0)
+	private String unknownBIGEight;
+        
+        @EDIElement(fieldName="BIG09")
+	@Size(min=0, max=0)
+	private String unknownBIGNine;
+        
+        //TODO:determine meaning example content was 0046102776
+        @EDIElement(fieldName="BIG10")
+	@Size(min=0, max=25)
+	private String customerOrderNumber;
 
 	public Date getInvoiceDate() {
 		return invoiceDate;
@@ -110,4 +123,46 @@ public class InvoiceBeginningSegment {
 				+ purchaseOrderNumber + ", transactionTypeCode="
 				+ transactionTypeCode + "]";
 	}
+
+    /**
+     * @return the unknownBIGEight
+     */
+    public String getUnknownBIGEight() {
+        return unknownBIGEight;
+    }
+
+    /**
+     * @param unknownBIGEight the unknownBIGEight to set
+     */
+    public void setUnknownBIGEight(String unknownBIGEight) {
+        this.unknownBIGEight = unknownBIGEight;
+    }
+
+    /**
+     * @return the unknownBIGNine
+     */
+    public String getUnknownBIGNine() {
+        return unknownBIGNine;
+    }
+
+    /**
+     * @param unknownBIGNine the unknownBIGNine to set
+     */
+    public void setUnknownBIGNine(String unknownBIGNine) {
+        this.unknownBIGNine = unknownBIGNine;
+    }
+
+    /**
+     * @return the customerOrderNumber
+     */
+    public String getCustomerOrderNumber() {
+        return customerOrderNumber;
+    }
+
+    /**
+     * @param customerOrderNumber the customerOrderNumber to set
+     */
+    public void setCustomerOrderNumber(String customerOrderNumber) {
+        this.customerOrderNumber = customerOrderNumber;
+    }
 }
