@@ -10,6 +10,7 @@ import javax.edi.model.x12.segment.DateTimeReference;
 import javax.edi.model.x12.segment.GeographicLocation;
 import javax.edi.model.x12.segment.HierarchicalLevel;
 import javax.edi.model.x12.segment.Name;
+import javax.edi.model.x12.segment.PersonContact;
 import javax.edi.model.x12.segment.QuantityWeightCarrierDetails;
 import javax.edi.model.x12.segment.ReferenceNumber;
 import javax.edi.model.x12.segment.RoutingCarrierDetails;
@@ -27,6 +28,7 @@ public class ShipmentLevelGroup {
 	private Name shipFromNameInformation;
 	private AddressInformation shipFromAddress;
 	private GeographicLocation shipmentFromLocation;
+        private PersonContact personContact;
 	
 	private Name shipToNameInformation;
 	private AddressInformation shipToAddress;
@@ -134,6 +136,20 @@ public class ShipmentLevelGroup {
 	public void setCurrency(Currency currency) {
 		this.currency = currency;
 	}
+
+    /**
+     * @return the personContact
+     */
+    public PersonContact getPersonContact() {
+        return personContact;
+    }
+
+    /**
+     * @param personContact the personContact to set
+     */
+    public void setPersonContact(PersonContact personContact) {
+        this.personContact = personContact;
+    }
 	
 	
 }

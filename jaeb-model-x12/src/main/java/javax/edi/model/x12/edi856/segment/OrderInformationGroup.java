@@ -7,6 +7,7 @@ import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDISegmentGroup;
 import javax.edi.model.x12.segment.HierarchicalLevel;
 import javax.edi.model.x12.segment.PurchaseOrderReference;
+import javax.edi.model.x12.segment.QuantityWeightCarrierDetails;
 import javax.edi.model.x12.segment.ReferenceNumber;
 import javax.validation.constraints.NotNull;
 
@@ -17,9 +18,10 @@ public class OrderInformationGroup implements Serializable {
 	private HierarchicalLevel purchaseOrderReferenceHeader;
 	private PurchaseOrderReference purchaseOrderReference;
 	private ReferenceNumber referenceNumber1;
+        private QuantityWeightCarrierDetails quantityWeightCarrierDetails;
 	
-	@EDICollectionType(PackageCartonGroup.class)
-	private Collection<PackageCartonGroup> packageCartonGroup;
+	@EDICollectionType(PackageCartonOrItemLevelGroup.class)
+	private Collection<PackageCartonOrItemLevelGroup> packageCartonGroup;
 	
 	
 
@@ -41,12 +43,12 @@ public class OrderInformationGroup implements Serializable {
 		this.purchaseOrderReference = purchaseOrderReference;
 	}
 
-	public Collection<PackageCartonGroup> getPackageCartonGroup() {
+	public Collection<PackageCartonOrItemLevelGroup> getPackageCartonGroup() {
 		return packageCartonGroup;
 	}
 
 	public void setPackageCartonGroup(
-			Collection<PackageCartonGroup> packageCartonGroup) {
+			Collection<PackageCartonOrItemLevelGroup> packageCartonGroup) {
 		this.packageCartonGroup = packageCartonGroup;
 	}
 
@@ -57,6 +59,20 @@ public class OrderInformationGroup implements Serializable {
 	public void setReferenceNumber1(ReferenceNumber referenceNumber1) {
 		this.referenceNumber1 = referenceNumber1;
 	}
+
+    /**
+     * @return the quantityWeightCarrierDetails
+     */
+    public QuantityWeightCarrierDetails getQuantityWeightCarrierDetails() {
+        return quantityWeightCarrierDetails;
+    }
+
+    /**
+     * @param quantityWeightCarrierDetails the quantityWeightCarrierDetails to set
+     */
+    public void setQuantityWeightCarrierDetails(QuantityWeightCarrierDetails quantityWeightCarrierDetails) {
+        this.quantityWeightCarrierDetails = quantityWeightCarrierDetails;
+    }
 
 	
 	
