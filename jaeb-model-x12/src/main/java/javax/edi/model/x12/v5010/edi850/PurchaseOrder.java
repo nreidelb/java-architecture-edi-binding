@@ -1,69 +1,45 @@
-package javax.edi.model.x12.v5010.edi850;
+package javax.edi.model.x12.v5010.edi850.segment;
 
-import java.util.Collection;
-
-import javax.edi.bind.annotations.EDICollectionType;
-import javax.edi.bind.annotations.EDIMessage;
-import javax.edi.model.x12.v5010.X12Message;
-import javax.edi.model.x12.v5010.edi850.segment.PurchaseOrderBody;
-import javax.edi.model.x12.v5010.segment.GroupEnvelopeHeader;
-import javax.edi.model.x12.v5010.segment.GroupEnvelopeTrailer;
-import javax.edi.model.x12.v5010.segment.InterchangeEnvelopeHeader;
-import javax.edi.model.x12.v5010.segment.InterchangeEnvelopeTrailer;
+import javax.edi.bind.annotations.EDISegmentGroup;
+import javax.edi.model.x12.v5010.Header;
+import javax.edi.model.x12.v5010.X12Body;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
-@EDIMessage
-public class PurchaseOrder implements X12Message {
+@EDISegmentGroup
+public class PurchaseOrderBody implements X12Body {
 
 	@NotNull
-	private InterchangeEnvelopeHeader interchangeEnvelopeHeader;
-	@NotNull
-	private GroupEnvelopeHeader groupEnvelopeHeader;
+	private OrderBodyHeader orderBodyHeader;
 	
 	@NotNull
-	@Size(min=1)
-	@EDICollectionType(PurchaseOrderBody.class)
-	private Collection<PurchaseOrderBody> body;
+	private Detail detail;
 	
 	@NotNull
-	private GroupEnvelopeTrailer groupEnvelopeTrailer;
-	@NotNull
-	private InterchangeEnvelopeTrailer interchangeEnvelopeTrailer;
-	public InterchangeEnvelopeHeader getInterchangeEnvelopeHeader() {
-		return interchangeEnvelopeHeader;
+	private Trailer trailer;
+        
+	public OrderBodyHeader getOrderBodyHeader() {
+		return orderBodyHeader;
 	}
-	public void setInterchangeEnvelopeHeader(
-			InterchangeEnvelopeHeader interchangeEnvelopeHeader) {
-		this.interchangeEnvelopeHeader = interchangeEnvelopeHeader;
+	public void setOrderBodyHeader(OrderBodyHeader header) {
+		this.orderBodyHeader = header;
 	}
-	public GroupEnvelopeHeader getGroupEnvelopeHeader() {
-		return groupEnvelopeHeader;
+	public Detail getDetail() {
+		return detail;
 	}
-	public void setGroupEnvelopeHeader(GroupEnvelopeHeader groupEnvelopeHeader) {
-		this.groupEnvelopeHeader = groupEnvelopeHeader;
+	public void setDetail(Detail detail) {
+		this.detail = detail;
 	}
-	public Collection<PurchaseOrderBody> getBody() {
-		return body;
+	public Trailer getTrailer() {
+		return trailer;
 	}
-	public void setBody(Collection<PurchaseOrderBody> body) {
-		this.body = body;
+	public void setTrailer(Trailer trailer) {
+		this.trailer = trailer;
 	}
-	public GroupEnvelopeTrailer getGroupEnvelopeTrailer() {
-		return groupEnvelopeTrailer;
-	}
-	public void setGroupEnvelopeTrailer(GroupEnvelopeTrailer groupEnvelopeTrailer) {
-		this.groupEnvelopeTrailer = groupEnvelopeTrailer;
-	}
-	public InterchangeEnvelopeTrailer getInterchangeEnvelopeTrailer() {
-		return interchangeEnvelopeTrailer;
-	}
-	public void setInterchangeEnvelopeTrailer(
-			InterchangeEnvelopeTrailer interchangeEnvelopeTrailer) {
-		this.interchangeEnvelopeTrailer = interchangeEnvelopeTrailer;
-	}
+        
+        //Getter for interface. Done this way to avoid reflection issue.
+        public Header getHeader() {
+            return orderBodyHeader;
+        }
 	
-
-
-
+	
 }
