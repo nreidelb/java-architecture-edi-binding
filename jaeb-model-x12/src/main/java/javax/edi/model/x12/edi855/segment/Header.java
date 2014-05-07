@@ -3,9 +3,8 @@ package javax.edi.model.x12.edi855.segment;
 import java.util.Collection;
 import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDISegmentGroup;
-import javax.edi.model.x12.segment.LineItemAcknowledgement;
+import javax.edi.model.x12.segment.PersonContact;
 import javax.edi.model.x12.segment.ReferenceIdentification;
-import javax.edi.model.x12.segment.ReferenceNumber;
 import javax.edi.model.x12.segment.TransactionSetHeader;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -20,6 +19,8 @@ public class Header implements javax.edi.model.x12.Header {
 	@NotNull
 	@Valid
 	private POAcknowledgementBeginningSegment beginningSegment;
+        
+        private PersonContact personContact;
         
         @EDICollectionType(ReferenceIdentification.class)
         private Collection<ReferenceIdentification> referenceIdentification;
@@ -53,6 +54,20 @@ public class Header implements javax.edi.model.x12.Header {
      */
     public void setReferenceIdentification(Collection<ReferenceIdentification> referenceIdentification) {
         this.referenceIdentification = referenceIdentification;
+    }
+
+    /**
+     * @return the personContact
+     */
+    public PersonContact getPersonContact() {
+        return personContact;
+    }
+
+    /**
+     * @param personContact the personContact to set
+     */
+    public void setPersonContact(PersonContact personContact) {
+        this.personContact = personContact;
     }
 	
 	
