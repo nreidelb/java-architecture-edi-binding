@@ -8,7 +8,6 @@ import javax.validation.constraints.NotNull;
 @EDISegmentGroup
 public class Trailer {
 
-	@NotNull
 	private TransactionSetTotals transactionSetTotals;
 	
 	@NotNull
