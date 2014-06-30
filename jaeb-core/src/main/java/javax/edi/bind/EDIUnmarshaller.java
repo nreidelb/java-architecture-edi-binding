@@ -52,6 +52,19 @@ public class EDIUnmarshaller {
     private static boolean isHeirarchicalLevelAndNotSameLevel(String[] lineList, String[] nextLineList) {
         return lineList[0].equals(nextLineList[0]) && nextLineList[0].equals("HL") && !lineList[3].equals( nextLineList[3] );
     }
+    
+    private static boolean isDeeperHeirarchicalLevel(String[] lineList, String[] nextLineList) {
+        if(lineList[0].equals(nextLineList[0]) && nextLineList[0].equals("HL")){
+            try{
+                Integer thisLevel = Integer.parseInt(lineList[3]);
+                Integer nextLineLevel = Integer.parseInt(nextLineList[3]);
+                return nextLineLevel > thisLevel;
+            } catch (NumberFormatException e) {
+                    return false;
+            }
+        }
+        return false;
+    }
 
 	private EDIUnmarshaller() {
 		// seal
@@ -162,7 +175,7 @@ public class EDIUnmarshaller {
                                     if(startOfNewRecursiveObject(fieldIterator, fieldsList, segmentGroupClass)){
                                         String next = lookAhead.size() > 0 ? lookAhead.remove() : segmentIterator.next();
                                         lookAhead.add(next);
-                                        if( !isSegmentHeirarchicalLevelAndNotSameLevel(line, next, Character.toString( ediMessage.elementDelimiter() )) ){
+                                        if( !isSegmentHeirarchicalLevelAndDeeperLevel(line, next, Character.toString( ediMessage.elementDelimiter() )) ){
                                             LOG.debug("Reaching new instance of list.");
                                             break;
                                         }
@@ -500,6 +513,16 @@ public class EDIUnmarshaller {
 		String[] nextLineList = line2.split( regex );
 		String[] lineList = line1.split( regex );
                 return isHeirarchicalLevelAndNotSameLevel(lineList, nextLineList);
+        }
+        
+        protected static boolean isSegmentHeirarchicalLevelAndDeeperLevel(String line1, String line2, String delimiter) {
+		String regex = delimiter;
+		if(delimiter.equals("*")) {
+			regex = "\\*";
+		}
+		String[] nextLineList = line2.split( regex );
+		String[] lineList = line1.split( regex );
+                return isDeeperHeirarchicalLevel(lineList, nextLineList);
         }
 
 }
