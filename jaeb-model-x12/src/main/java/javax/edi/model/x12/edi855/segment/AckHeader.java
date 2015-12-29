@@ -7,6 +7,7 @@ import javax.edi.bind.annotations.EDISegmentGroup;
 import javax.edi.model.x12.edi810.segment.InvoiceAddressGroup;
 import javax.edi.model.x12.segment.PersonContact;
 import javax.edi.model.x12.segment.ReferenceIdentification;
+import javax.edi.model.x12.segment.ReferenceNumber;
 import javax.edi.model.x12.segment.TransactionSetHeader;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -27,6 +28,9 @@ public class AckHeader implements javax.edi.model.x12.Header {
     
     @EDICollectionType(ReferenceIdentification.class)
     private Collection<ReferenceIdentification> referenceIdentification;
+    
+    @EDICollectionType(ReferenceNumber.class)
+    private Collection<ReferenceNumber> referenceNumbers;
     
     @EDICollectionType(InvoiceAddressGroup.class)
 	@Size(min=0, max=200)
@@ -83,6 +87,14 @@ public class AckHeader implements javax.edi.model.x12.Header {
 
 	public void setAddressInformation(Collection<InvoiceAddressGroup> addressInformation) {
 		this.addressInformation = addressInformation;
+	}
+
+	public Collection<ReferenceNumber> getReferenceNumbers() {
+		return referenceNumbers;
+	}
+
+	public void setReferenceNumbers(Collection<ReferenceNumber> referenceNumbers) {
+		this.referenceNumbers = referenceNumbers;
 	}
 	
 	
