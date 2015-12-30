@@ -29,8 +29,9 @@ public class AckHeader implements javax.edi.model.x12.Header {
     @EDICollectionType(ReferenceIdentification.class)
     private Collection<ReferenceIdentification> referenceIdentification;
     
-    @EDICollectionType(ReferenceNumber.class)
-    private Collection<ReferenceNumber> referenceNumbers;
+    private ReferenceNumber referenceNumberOne;
+    
+    private ReferenceNumber referenceNumberTwo;
     
     @EDICollectionType(InvoiceAddressGroup.class)
 	@Size(min=0, max=200)
@@ -89,12 +90,20 @@ public class AckHeader implements javax.edi.model.x12.Header {
 		this.addressInformation = addressInformation;
 	}
 
-	public Collection<ReferenceNumber> getReferenceNumbers() {
-		return referenceNumbers;
+	public ReferenceNumber getReferenceNumberOne() {
+		return referenceNumberOne;
 	}
 
-	public void setReferenceNumbers(Collection<ReferenceNumber> referenceNumbers) {
-		this.referenceNumbers = referenceNumbers;
+	public void setReferenceNumberOne(ReferenceNumber referenceNumberOne) {
+		this.referenceNumberOne = referenceNumberOne;
+	}
+
+	public ReferenceNumber getReferenceNumberTwo() {
+		return referenceNumberTwo;
+	}
+
+	public void setReferenceNumberTwo(ReferenceNumber referenceNumberTwo) {
+		this.referenceNumberTwo = referenceNumberTwo;
 	}
 	
 	
