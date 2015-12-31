@@ -14,6 +14,7 @@ import javax.edi.model.x12.segment.PersonContact;
 import javax.edi.model.x12.segment.QuantityWeightCarrierDetails;
 import javax.edi.model.x12.segment.ReferenceNumber;
 import javax.edi.model.x12.segment.RoutingCarrierDetails;
+import javax.edi.model.x12.segment.ShipmentCarrierDetails;
 
 @EDISegmentGroup
 public class ShipmentLevelGroup {
@@ -21,6 +22,7 @@ public class ShipmentLevelGroup {
 	private HierarchicalLevel shipmentInformationLevel;
 	private QuantityWeightCarrierDetails quantityWeightCarrierDetails;
 	private RoutingCarrierDetails routingCarrierDetails;
+	private ShipmentCarrierDetails shipmentCarrierDetails;
 	private ReferenceNumber referenceNumber1;
 	private ReferenceNumber referenceNumber2;
 	private DateTimeReference shipmentDateTime;
@@ -150,6 +152,14 @@ public class ShipmentLevelGroup {
     public void setPersonContact(PersonContact personContact) {
         this.personContact = personContact;
     }
+
+	public ShipmentCarrierDetails getShipmentCarrierDetails() {
+		return shipmentCarrierDetails;
+	}
+
+	public void setShipmentCarrierDetails(ShipmentCarrierDetails shipmentCarrierDetails) {
+		this.shipmentCarrierDetails = shipmentCarrierDetails;
+	}
 	
 	
 }
