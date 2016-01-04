@@ -3,14 +3,14 @@
   <parent>
     <groupId>javax.edi</groupId>
     <artifactId>jaeb</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>1.0.30</version>
   </parent>
   <artifactId>jaeb-model-x12</artifactId>
   <dependencies>
   	<dependency>
   		<groupId>javax.edi</groupId>
   		<artifactId>jaeb-core</artifactId>
-  		<version>0.0.2-SNAPSHOT</version>
+  		<version>1.0.30</version>
   	</dependency>
   </dependencies>
 </project>
