@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.edi.bind.annotations.EDICollectionType;
 import javax.edi.bind.annotations.EDISegmentGroup;
 import javax.edi.model.x12.edi810.segment.InvoiceAddressGroup;
+import javax.edi.model.x12.segment.DateTimeReference;
 import javax.edi.model.x12.segment.PersonContact;
 import javax.edi.model.x12.segment.ReferenceIdentification;
 import javax.edi.model.x12.segment.ReferenceNumber;
@@ -32,6 +33,8 @@ public class AckHeader implements javax.edi.model.x12.Header {
     private ReferenceNumber referenceNumberOne;
     
     private ReferenceNumber referenceNumberTwo;
+    
+    private DateTimeReference dateTimeReference;
     
     @EDICollectionType(InvoiceAddressGroup.class)
 	@Size(min=0, max=200)
@@ -104,6 +107,14 @@ public class AckHeader implements javax.edi.model.x12.Header {
 
 	public void setReferenceNumberTwo(ReferenceNumber referenceNumberTwo) {
 		this.referenceNumberTwo = referenceNumberTwo;
+	}
+
+	public DateTimeReference getDateTimeReference() {
+		return dateTimeReference;
+	}
+
+	public void setDateTimeReference(DateTimeReference dateTimeReference) {
+		this.dateTimeReference = dateTimeReference;
 	}
 	
 	

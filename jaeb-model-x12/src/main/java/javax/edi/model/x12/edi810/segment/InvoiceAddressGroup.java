@@ -5,6 +5,7 @@
 package javax.edi.model.x12.edi810.segment;
 
 import javax.edi.bind.annotations.EDISegmentGroup;
+import javax.edi.model.x12.segment.AdditionalNameInformation;
 import javax.edi.model.x12.segment.AddressInformation;
 import javax.edi.model.x12.segment.GeographicLocation;
 import javax.edi.model.x12.segment.Name;
@@ -16,6 +17,7 @@ import javax.edi.model.x12.segment.Name;
 @EDISegmentGroup
 public class InvoiceAddressGroup {
     private Name name;
+    private AdditionalNameInformation additionalNameInformation;
     private AddressInformation addressInformation;
     private GeographicLocation geographicLocation;
 
@@ -60,5 +62,13 @@ public class InvoiceAddressGroup {
     public void setGeographicLocation(GeographicLocation geographicLocation) {
         this.geographicLocation = geographicLocation;
     }
+
+	public AdditionalNameInformation getAdditionalNameInformation() {
+		return additionalNameInformation;
+	}
+
+	public void setAdditionalNameInformation(AdditionalNameInformation additionalNameInformation) {
+		this.additionalNameInformation = additionalNameInformation;
+	}
     
 }
