@@ -30,7 +30,6 @@ public class POBaselineItemData {
 	private String unitOfMeasure;
 	
 	@EDIElement(fieldName="PO104", dataElement="212")
-	@EDIElementFormat("####.##")
 	@BigDecimalSize(min=1 ,max=14 ,message="PO104: Unit price size constraint" )
 	private BigDecimal unitPrice;
 	

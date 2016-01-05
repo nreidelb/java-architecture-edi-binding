@@ -1,12 +1,10 @@
 package javax.edi.model.x12.edi855.segment;
 
-import java.math.BigInteger;
 import java.util.Date;
 
 import javax.edi.bind.annotations.EDIElement;
 import javax.edi.bind.annotations.EDISegment;
 import javax.edi.bind.annotations.elements.EDIElementFormat;
-import javax.edi.model.x12.constraint.BigIntegerContraint.BigIntegerSize;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -44,8 +42,8 @@ public class POAcknowledgementBeginningSegment {
 	
 	
 	@EDIElement(fieldName="BAK06", dataElement="327")
-	@BigIntegerSize(min=1, max=8, message="BAK06: Change order sequence number size constraint")
-	private BigInteger changeOrderSeqNo;
+	@Size(min=1, max=8, message="BAK06: Change order sequence number size constraint")
+	private String changeOrderSeqNo;
 	
 	
 	@EDIElement(fieldName="BAK07", dataElement="640")
@@ -106,17 +104,6 @@ public class POAcknowledgementBeginningSegment {
 		this.releaseNumber = releaseNumber;
 	}
 
-
-	public BigInteger getChangeOrderSeqNo() {
-		return changeOrderSeqNo;
-	}
-
-
-	public void setChangeOrderSeqNo(BigInteger changeOrderSeqNo) {
-		this.changeOrderSeqNo = changeOrderSeqNo;
-	}
-
-
 	public String getTransactionTypeCode() {
 		return transactionTypeCode;
 	}
@@ -139,6 +126,16 @@ public class POAcknowledgementBeginningSegment {
     public void setReferenceIdentification(String referenceIdentification) {
         this.referenceIdentification = referenceIdentification;
     }
+
+
+	public String getChangeOrderSeqNo() {
+		return changeOrderSeqNo;
+	}
+
+
+	public void setChangeOrderSeqNo(String changeOrderSeqNo) {
+		this.changeOrderSeqNo = changeOrderSeqNo;
+	}
 
 	
 
